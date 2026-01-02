@@ -17,13 +17,6 @@ pipeline{
                 }
             }
         }
-        stage("Push to DockerHub"){
-            steps{
-                script{
-                    push("notes-app","latest","rajshihi")
-                }
-            }
-        }
         stage("Deploy"){
             steps{
                 script{
