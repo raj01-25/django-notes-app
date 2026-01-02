@@ -6,22 +6,30 @@ pipeline{
         stage("Code clone"){
             steps{
                 sh "whoami"
-                clone("https://github.com/raj01-25/django-notes-app.git","main")
+                scripts{
+                    clone("https://github.com/raj01-25/django-notes-app.git","main")
+                }
             }
         }
         stage("Code Build"){
             steps{
-                build("notes-app","latest","rajshihi")
+                scripts{
+                    build("notes-app","latest","rajshihi")
+                }
             }
         }
         stage("Push to DockerHub"){
             steps{
-                push("notes-app","latest","rajshihi")
+                scripts{
+                    push("notes-app","latest","rajshihi")
+                }
             }
         }
         stage("Deploy"){
             steps{
-                deploy()
+                scripts{
+                    deploy()
+                }
             }
         }
         
