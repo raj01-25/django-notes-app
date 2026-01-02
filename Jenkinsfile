@@ -5,28 +5,28 @@ pipeline{
     stages{
         stage("Code clone"){
             steps{
-                scripts{
+                script{
                     clone("https://github.com/raj01-25/django-notes-app.git","main")
                 }
             }
         }
         stage("Code Build"){
             steps{
-                scripts{
+                script{
                     build("notes-app","latest","rajshihi")
                 }
             }
         }
         stage("Push to DockerHub"){
             steps{
-                scripts{
+                script{
                     push("notes-app","latest","rajshihi")
                 }
             }
         }
         stage("Deploy"){
             steps{
-                scripts{
+                script{
                     deploy()
                 }
             }
