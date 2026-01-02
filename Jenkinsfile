@@ -11,10 +11,7 @@ pipeline{
         }
         stage("Code Build"){
             steps{
-                build(
-                        ProjectName: 'notes-app',
-                        ImageTag: 'latest',
-                        DockerHubUser: 'rajshihi')
+                build("notes-app","latest","rajshihi")
             }
         }
         stage("Push to DockerHub"){
